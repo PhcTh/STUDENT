@@ -19,7 +19,7 @@ namespace B.ThaoTac
             BangDiem_C cls = new BangDiem_C();
             return cls.LayDiemTheoKySinhVien(BD);
         }
-
+        //Laydiemconloi
         public int ThemKetQua(BangDiem_ThongTin BD)
         {
             // Them ket qua
