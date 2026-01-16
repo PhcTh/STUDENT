@@ -47,7 +47,10 @@ namespace C.DuLieu
                         con.Open();
                         result = cmd.ExecuteNonQuery();
                     }
-                    catch (Exception ex) { Console.WriteLine("Lỗi: " + ex.Message); }
+                    catch (SqlException)
+                    {
+                        throw; // giữ nguyên thông báo từ SQL (RAISERROR)
+                    }
                 }
             }
             return result;
