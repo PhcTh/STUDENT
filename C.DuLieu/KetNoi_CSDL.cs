@@ -19,7 +19,7 @@ namespace C.DuLieu
             try
             {
                 string LuaChon = ConfigurationManager.AppSettings["LuaChon"].ToString();
-
+                //"Sử dụng tài khoản tạo trong security"
                 if (LuaChon.Equals("Sử Dụng Tài Khoản"))
                 {
                     connectionString = @"data source=" + ConfigurationManager.AppSettings["Server"].ToString()
@@ -27,7 +27,7 @@ namespace C.DuLieu
                                      + ConfigurationManager.AppSettings["Username"].ToString()
                                      + ";password=" + ConfigurationManager.AppSettings["Password"].ToString() + "";
                 }
-                else // Mặc định hoặc "Không Dùng Tài Khoản"
+                else // Mặc định hoặc "Không Dùng Tài Khoản" 
                 {
                     connectionString = @"data source=" + ConfigurationManager.AppSettings["Server"].ToString()
                                      + ";initial catalog=QLSINHVIEN;integrated security=True;";

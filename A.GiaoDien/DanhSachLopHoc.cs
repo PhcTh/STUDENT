@@ -39,6 +39,9 @@ namespace A.GiaoDien
                 btSua.Enabled = true;
                 btXoa.Enabled = true;
 
+
+                //hello
+
                 // Admin: KHÔNG được Nhập điểm
                 btNhapDiem.Enabled = false;
             }
@@ -54,7 +57,7 @@ namespace A.GiaoDien
             }
             else // Các trường hợp khác, tắt hết để đảm bảo an toàn
             {
-                btThem.Enabled = false;
+                btThem.Enabled = true;
                 btSua.Enabled = false;
                 btXoa.Enabled = false;
                 btNhapDiem.Enabled = false;
