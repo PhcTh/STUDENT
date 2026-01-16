@@ -110,12 +110,16 @@ namespace C.DuLieu
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@MaKhoaHoc", KH.MaKhoaHoc);
+
                     try
                     {
                         con.Open();
                         result = cmd.ExecuteNonQuery();
                     }
-                    catch (Exception ex) { Console.WriteLine("Lỗi: " + ex.Message); }
+                    catch (SqlException)
+                    {
+                        throw; // giữ nguyên thông báo từ SQL (RAISERROR)
+                    }
                 }
             }
             return result;

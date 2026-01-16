@@ -164,13 +164,24 @@ namespace A.GiaoDien
             {
                 try
                 {
-                    cls_KhoaHoc.XoaKhoaHoc(KhoaHoc);
-                    // Tải lại dữ liệu sau khi xóa thành công
-                    tbKhoaHoc.DataSource = cls_KhoaHoc.DanhSach_ThongTin_KhoaHoc();
+                    int kq = cls_KhoaHoc.XoaKhoaHoc(KhoaHoc);
+
+                    if (kq > 0)
+                    {
+                        tbKhoaHoc.DataSource = cls_KhoaHoc.DanhSach_ThongTin_KhoaHoc();
+                        MessageBox.Show("Xóa thành công!", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy khóa học để xóa (hoặc đã bị xóa trước đó).", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Không thể xóa dữ liệu này. Lỗi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Thông báo lỗi",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

@@ -158,13 +158,25 @@ namespace A.GiaoDien
             {
                 try
                 {
-                    cls_HocKy.XoaHocKy(HocKy);
-                    // Tải lại dữ liệu sau khi xóa thành công
-                    tbDanhSachHocKy.DataSource = cls_HocKy.DanhSachThongTinHocKy();
+                    int kq = cls_HocKy.XoaHocKy(HocKy);
+
+                    if (kq > 0)
+                    {
+                        tbDanhSachHocKy.DataSource = cls_HocKy.DanhSachThongTinHocKy();
+                        MessageBox.Show("Xóa thành công!", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy học kỳ để xóa (hoặc đã bị xóa trước đó).", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Không thể xóa dữ liệu này. Lỗi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Chỉ hiện đúng message từ SQL (RAISERROR) hoặc message throw từ tầng dưới
+                    MessageBox.Show(ex.Message, "Thông báo lỗi",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
