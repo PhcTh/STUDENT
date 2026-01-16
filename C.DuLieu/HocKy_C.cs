@@ -52,7 +52,7 @@ namespace C.DuLieu
             return dt;
         }
 
-        //XÓA 1 HỌC KỲ.
+        //XÓA 1 HỌC KỲ.fix xoas hk
         public int XoaHocKy(HocKy_ThongTin HK)
         {
             KetNoi_CSDL provider = new KetNoi_CSDL();
