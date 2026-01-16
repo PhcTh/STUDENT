@@ -22,6 +22,7 @@ namespace B.ThaoTac
 
         public int ThemKetQua(BangDiem_ThongTin BD)
         {
+            // Them ket qua
             BangDiem_C cls = new BangDiem_C();
             return cls.ThemKetQua(BD);
         }
